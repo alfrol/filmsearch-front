@@ -1,0 +1,21 @@
+.filter-bar {
+  display: inline-block;
+  list-style-type: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.filter-bar li {
+  margin: 0;
+  display: block;
+  padding: 10px;
+  justify-content: space-evenly;
+}
+
+.filter-bar li:hover {
+  cursor: pointer;
+}

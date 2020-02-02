@@ -1,0 +1,13 @@
+<app-film-search></app-film-search>
+<app-film-filter (emitter)="getFilteredFilms($event)"></app-film-filter>
+<div>
+  <ul>
+    <mat-nav-list>
+      <li *ngFor="let film of films">
+        <a routerLink="/detail/{{ film.id }}">
+          {{ film.title }}
+        </a>
+      </li>
+    </mat-nav-list>
+  </ul>
+</div>

@@ -1,0 +1,56 @@
+stages:
+  - build
+#  - test
+  - deploy
+
+build iti0203-frontend:
+  stage: build
+  image: node:11-alpine
+  cache:
+    paths:
+      - node_modules
+  before_script:
+  - npm install
+  - npm audit fix
+  - npm update
+  script:
+    - ng config -g cli.warnings.versionMismatch false
+    - node --max_old_space_size=8192 ./node_modules/@angular/cli/bin/ng build --prod --build-optimizer
+#    - ng build --prod
+  artifacts:
+    paths:
+      - dist/
+  tags:
+    - films-app
+  variables:
+    api:
+      localhost/api
+
+#karma-test iti0203-frontend:
+#  stage: test
+#  image: node:11-alpine
+#  allow_failure: false
+#  before_script:
+#    - rm ./package-lock.json
+#    - npm install
+#    - npm update
+#  script:
+#    - ng test --no-watch --code-coverage --no-progress --browsers=ChromeHeadlessCI
+#  coverage: '/Lines \W+: (\d+\.\d+)%.*/'
+#  artifacts:
+#    paths:
+#      - coverage/
+#  tags:
+#    - films-app
+
+deploy iti0203-frontend:
+  stage: deploy
+  only:
+    - master
+  tags:
+    - films-app
+  script:
+    - mkdir -p ~/front-deployment
+    - rm -rf ~/front-deployment/*
+    - cp -r dist/iti0203-frontend/. ~/front-deployment
+

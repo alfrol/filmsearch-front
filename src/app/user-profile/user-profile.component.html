@@ -1,0 +1,94 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+  <h1>Here you can see and modify your profile info</h1>
+</div>
+
+<mat-card class="profile-info">
+  <mat-card-actions fxLayoutAlign="end">
+    <button mat-button matSuffix mat-icon-button (click)="modify()" matTooltip="Modify">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-card-actions>
+
+  <mat-card-header fxLayoutAlign="center center">
+    <mat-card-title>Main Info</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <form class="main-info" [formGroup]="profileInfoForm" (ngSubmit)="onSubmit()" novalidate>
+      <mat-grid-list cols="2" rowHeight="100px">
+        <mat-grid-tile colspan="2" rowspan="1">
+          <mat-form-field class="first-name" appearance="standard" color="accent">
+            <mat-label>First Name</mat-label>
+            <input type="text" matInput id="firstName" formControlName="firstName">
+
+            <mat-error *ngIf="hasError('firstName', 'required')">First name is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="last-name" appearance="standard" color="accent">
+            <mat-label>Last Name</mat-label>
+            <input type="text" matInput id="lastName" formControlName="lastName">
+
+            <mat-error *ngIf="hasError('lastName', 'required')">Last name is required</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="1">
+          <mat-form-field class="age" appearance="standard" color="accent">
+            <mat-label>Age</mat-label>
+            <input type="text" matInput id="age" formControlName="age">
+
+            <mat-error *ngIf="hasError('age', 'required')">Age is required</mat-error>
+            <mat-error *ngIf="hasError('age', 'min')">Minimum value for age is 1</mat-error>
+            <mat-error *ngIf="hasError('age', 'max')">Maximum value for age is 120</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="1">
+          <mat-form-field class="username" appearance="standard" color="accent">
+            <mat-label>Username</mat-label>
+            <input type="text" matInput id="username" formControlName="username">
+
+            <mat-error *ngIf="hasError('username', 'required')">Username is required</mat-error>
+            <mat-error *ngIf="hasError('username', 'incorrect')">{{ this.profileInfoForm.controls.username.errors.incorrect }}</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="email" appearance="standard" color="accent">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput id="email" formControlName="email">
+
+            <mat-error *ngIf="hasError('email', 'required')">Email is required</mat-error>
+            <mat-error *ngIf="hasError('email', 'email')">Email format is incorrect</mat-error>
+            <mat-error *ngIf="hasError('email', 'incorrect')">{{ this.profileInfoForm.controls.email.errors.incorrect }}</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+      </mat-grid-list>
+
+      <mat-grid-list cols="2" rowHeight="100px" *ngIf="editing">
+        <mat-grid-tile colspan="2" rowspan="1">
+          <p>Change Password</p>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="1">
+          <mat-form-field class="new-password" appearance="standard" color="accent">
+            <mat-label>New Password</mat-label>
+            <input type="password" matInput id="password" formControlName="password">
+
+            <mat-error *ngIf="hasError('password', 'minlength')">Password must be at least 6 characters long</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="password-confirmation" appearance="standard" color="accent">
+            <mat-label>Confirm Password</mat-label>
+            <input type="password" matInput id="passwordConfirmation" formControlName="passwordConfirmation">
+
+            <mat-error *ngIf="hasError('passwordConfirmation', 'required')">Password confirmation is required</mat-error>
+            <mat-error *ngIf="hasError('passwordConfirmation', 'noMatch')">Passwords do not match</mat-error>
+          </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile colspan="2" rowspan="1">
+          <button type="submit" mat-flat-button color="accent" [disabled]="loading">Save</button>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </form>
+  </mat-card-content>
+</mat-card>

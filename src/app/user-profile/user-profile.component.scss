@@ -1,0 +1,35 @@
+.profile-info {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+mat-card-actions {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+::ng-deep .mat-form-field {
+  .mat-input-element:disabled {
+    color: rgba(0, 0, 0, 0.87);
+  }
+}
+
+::ng-deep .mat-form-field-underline {
+  background-image: none !important;
+  background-color: rgba(0, 0, 0, 0.42) !important;
+}
+
+.mat-card-header .mat-card-title {
+  margin-bottom: 20px;
+}
+
+.main-info {
+  .first-name, .username, .new-password {
+    margin-right: 20px;
+  }
+
+  .last-name, .email, .password-confirmation {
+    margin-left: 20px;
+  }
+}

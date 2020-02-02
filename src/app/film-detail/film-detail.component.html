@@ -1,0 +1,44 @@
+<app-film-search></app-film-search>
+<div *ngIf="film">
+  <div class="film-details">
+    <div class="film-image"><p><img [src]="film.imagePath" [alt]="film.title + ' image'"></p></div>
+      <div class="information">
+        <div class="page-title">
+          <h2>Film Details</h2>
+        </div>
+        <div class="film-title"><p><span>{{ film.title }}</span></p></div>
+        <div class="film-producer"><p><span>Producer: {{film.producer}}</span></p></div>
+        <div class="film-age"><p><span>Age rating: {{film.ageRating}}</span></p></div>
+        <div class="film-plot"><p><span>Plot: {{film.plot}}</span></p></div>
+        <div class="film-genre"><p><span>Genre: {{film.genre}}</span></p></div>
+        <div class="film-date"><p><span>Release date: {{film.releaseDate}} year</span></p></div>
+        <div class="film-duration"><p><span>Duration: {{getFilmDurationAsString(film)}}</span></p></div>
+        <div id="intro-content" class="center-content">
+          <div class="center-content-inner">
+            <div class="content-section content-section-margin">
+              <div class="content-section-grid clearfix">
+                <a href="/films" class="button nav-link">
+                  <div class="top">
+                    <div class="label">Back</div>
+                    <div class="button-border button-border-left"></div>
+                    <div class="button-border button-border-top"></div>
+                    <div class="button-border button-border-right"></div>
+                    <div class="button-border button-border-bottom"></div>
+                  </div>
+                </a>
+                <div *ngIf="authentication.currentUserValue" (click)="addFilmToWishList()" class="button nav-link">
+                  <div class="top">
+                    <div class="label">Add to wishlist</div>
+                    <div class="button-border button-border-left"></div>
+                    <div class="button-border button-border-top"></div>
+                    <div class="button-border button-border-right"></div>
+                    <div class="button-border button-border-bottom"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

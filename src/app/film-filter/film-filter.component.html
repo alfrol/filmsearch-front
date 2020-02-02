@@ -1,0 +1,12 @@
+<div>
+  <h4>Filter by genre</h4>
+  <ul *ngFor="let genre of allGenres" class="filter-bar">
+    <li #button (click)="filterByGenre(genre, button)">
+      {{genre.value}}
+    </li>
+  </ul>
+</div>
+
+
+
+

@@ -1,0 +1,18 @@
+.wishlist {
+  max-width: 800px;
+  margin: 0 auto 10px;
+}
+
+img {
+  height: 200px;
+}
+
+.clear-button {
+  width: 50%;
+  height: 50%;
+
+  mat-icon {
+    //font-size: 50px;
+    transform: scale(2);
+  }
+}

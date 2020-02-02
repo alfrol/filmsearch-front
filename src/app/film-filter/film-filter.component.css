@@ -1,0 +1,23 @@
+.filter-bar {
+  display: inline-block;
+  list-style-type: none;
+  padding: 0;
+}
+
+.filter-bar li {
+  margin: 0;
+  display: block;
+  padding: 10px;
+}
+
+.filter-bar li:hover {
+  cursor: pointer;
+}
+
+img {
+  width: 80px;
+}
+
+.selected {
+  background-color: grey;
+}

@@ -1,0 +1,17 @@
+<div class="search-bar">
+  <h4><label for="search-box">Search film by Title</label></h4>
+  <input #searchBox id="search-box" (input)="search(searchBox.value)">
+</div>
+  <div class="container">
+    <ul class="results">
+      <li *ngFor="let match of films | async">
+        <a routerLink="/detail/{{ match.id }}" (click)="clearSearch(searchBox)">
+          <div class="film-title-search">{{ match.title }}</div>
+          <div class="film-genre-search">{{ match.genre }}</div>
+          <div class="film-date-search">{{ match.releaseDate }}</div>
+          <div class="film-image-search"><img [src]="match.imagePath" [alt]="match.title + ' image'"></div>
+          <div class="film-plot-search">{{match.plot}}</div>
+        </a>
+      </li>
+    </ul>
+  </div>
