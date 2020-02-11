@@ -7,7 +7,7 @@ This repository contains frontend for Java project developed during the course
 
 Our application can be run quit quickly.
 All you have to do is clone this repository and our backend repository, which can be found
-[here](https://gitlab.cs.ttu.ee/alfrol/iti0203-backend) 
+[here](https://github.com/alfrol/filmsearch-back) 
 
 Next you will have to install **Docker**. This is necessary for running the database.
 Go to [Docker download page](https://hub.docker.com/?overlay=onboarding) and install it.
