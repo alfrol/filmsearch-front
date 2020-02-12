@@ -1,4 +1,4 @@
-# Team 2 Jackals | Java Project Frontend
+# Java Project Frontend
 
 This repository contains frontend for Java project developed during the course
 **Information Systems Development in Java (ITI0203)** at TalTech.
